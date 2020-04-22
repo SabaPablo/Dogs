@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/dog_navigation"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="ar.com.cablevision.attv.dogs.view.ListFragment"
+        android:label="ListFragment" >
+        <action
+            android:id="@+id/actionDetailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/actionSettings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="ar.com.cablevision.attv.dogs.view.DetailFragment"
+        android:label="DetailFragment" >
+        <action
+            android:id="@+id/actionListFragment"
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
+        <argument
+            android:name="dogUuid"
+            android:defaultValue="0"
+            app:argType="integer">
+        </argument>
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="ar.com.cablevision.attv.dogs.SettingsFragment"
+        android:label="SettingsFragment" />
+</navigation>
